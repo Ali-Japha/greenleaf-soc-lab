@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  siem:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.1
+    container_name: greenleaf-siem
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+    networks:
+      - isolated_lab
+
+  log_generator:
+    image: alpine
+    container_name: greenleaf-log-gen
+    command: /bin/sh -c "while true; do echo '{\"timestamp\":\"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'\",\"level\":\"INFO\",\"message\":\"Simulated user login on GreenLeaf platform\"}'; sleep 5; done"
+    networks:
+      - isolated_lab
+
+networks:
+  isolated_lab:
+    driver: bridge
+    internal: true
