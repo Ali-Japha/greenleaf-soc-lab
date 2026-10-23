@@ -13,3 +13,4 @@
 
 **Isolation & Data Statement:**
 All testing is strictly confined to this isolated local lab environment. **No real data, PII, or financial records are used.** All logs are generated synthetically. The Docker network is internally bridged and has no internet access to real GreenLeaf systems.
+
