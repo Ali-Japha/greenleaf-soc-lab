@@ -1,0 +1,17 @@
+title: Unauthorized Access to Admin Portal
+id: 33333333-4444-5555-6666-777777777777
+status: experimental
+description: Detects access attempts to the GreenLeaf /admin endpoints from non-internal IP addresses.
+logsource:
+    category: web
+    product: greenleaf_app
+detection:
+    selection:
+        url_path|startswith: '/admin'
+    filter:
+        src_ip|cidr: '10.0.0.0/8'
+    condition: selection and not filter
+level: high
+tags:
+    - attack.defense_evasion
+    - attack.t1078

@@ -1,0 +1,16 @@
+title: Multiple Failed Logins (Brute Force)
+id: 11111111-2222-3333-4444-555555555555
+status: experimental
+description: Detects multiple failed login attempts indicative of a brute force attack against the GreenLeaf platform.
+logsource:
+    category: application
+    product: greenleaf_auth
+detection:
+    selection:
+        event_type: 'login_failed'
+    condition: selection | count(event_type) > 10
+timeframe: 5m
+level: high
+tags:
+    - attack.credential_access
+    - attack.t1110
