@@ -27,3 +27,8 @@ Three vendor-agnostic Sigma rules were developed to monitor GreenLeaf's applicat
   - *Brute Force:* Increased the `count` threshold to >10 failures within a `5m` timeframe to account for benign human error.
   - *Unauthorized Access:* Added a CIDR exclusion filter (`10.0.0.0/8`) to ensure known internal subnets are ignored by the alert logic.
 - **Final State:** After tuning, the **false positive rate was reduced to <4%** while maintaining a 100% true positive detection rate on injected attack simulations.
+
+## Task 4: Metrics Dashboard & Performance Monitoring
+* **Dashboard URL:** `http://localhost:3000/d/soc-metrics`
+* **Metrics Tracked:** Time to Detect (TTD) and Time to Respond (TTR).
+* **Alerts:** Out-of-range thresholds configured in Grafana for TTD (>15 mins) and TTR (>60 mins).

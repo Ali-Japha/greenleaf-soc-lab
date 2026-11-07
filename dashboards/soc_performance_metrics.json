@@ -1,0 +1,37 @@
+{
+  "title": "SOC Performance Metrics",
+  "panels": [
+    {
+      "type": "gauge",
+      "title": "Mean Time to Detect (MTTD)",
+      "targets": [ { "expr": "avg(time_to_detect)" } ],
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "red", "value": 15 }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": "gauge",
+      "title": "Mean Time to Respond (MTTR)",
+      "targets": [ { "expr": "avg(time_to_respond)" } ],
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "red", "value": 60 }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
