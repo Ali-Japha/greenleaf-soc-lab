@@ -1,25 +1,35 @@
 version: '3.8'
+
 services:
-  siem:
+  elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.11.1
-    container_name: greenleaf-siem
+    container_name: greenleaf-elasticsearch
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=false
-      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ports:
       - "9200:9200"
     networks:
-      - isolated_lab
+      - soc-network
 
-  log_generator:
-    image: alpine
-    container_name: greenleaf-log-gen
-    command: /bin/sh -c "while true; do echo '{\"timestamp\":\"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'\",\"level\":\"INFO\",\"message\":\"Simulated user login on GreenLeaf platform\"}'; sleep 5; done"
+  grafana:
+    image: grafana/grafana:latest
+    container_name: greenleaf-grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=greenleaf_soc
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./dashboards:/var/lib/grafana/dashboards
+    depends_on:
+      - elasticsearch
     networks:
-      - isolated_lab
+      - soc-network
 
 networks:
-  isolated_lab:
+  soc-network:
     driver: bridge
-    internal: true
