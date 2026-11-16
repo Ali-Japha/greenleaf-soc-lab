@@ -35,14 +35,14 @@ Three vendor-agnostic Sigma rules were developed to monitor GreenLeaf's applicat
 
 ---
 ## Task 5: Live SOC Deployment, Incident Rehearsal & Handover
-* **Live SOC Dashboard URL:** `https://greenleaf-soc-dashboard.onrender.com` *(Replace with your actual Render/Railway URL after Step 3)*
+* **Live SOC Dashboard URL:** `https://greenleaf-soc-lab-production.up.railway.app` *(Replace with your actual Render/Railway URL after Step 3)*
 * **Components Running:** Grafana Dashboard (Anonymous Viewer enabled), Sigma Detection Rules, and Alerting Thresholds.
 * **Incident Rehearsal:** Completed full attack simulation on 2026-11-15 (TTD: 54s, TTR: 9m 29s). Full timestamped log available in [`incident_rehearsal_log.md`](./incident_rehearsal_log.md).
 * **Dev Team Handover:** Operational runbook and architecture maintenance guide documented in [`HANDOVER.md`](./HANDOVER.md).
 
 ---
 ## Task 5: Live SOC Deployment, Incident Rehearsal & Handover
-* **Live SOC Dashboard URL:** `https://greenleaf-soc-dashboard.onrender.com` *(Replace with your actual Render/Railway URL after Step 3)*
+* **Live SOC Dashboard URL:** `https://greenleaf-soc-lab-production.up.railway.app` *(Replace with your actual Render/Railway URL after Step 3)*
 * **Components Running:** Grafana Dashboard (Anonymous Viewer enabled), Sigma Detection Rules, and Alerting Thresholds.
 * **Incident Rehearsal:** Completed full attack simulation on 2026-11-15 (TTD: 54s, TTR: 9m 29s). Full timestamped log available in [`incident_rehearsal_log.md`](./incident_rehearsal_log.md).
 * **Dev Team Handover:** Operational runbook and architecture maintenance guide documented in [`HANDOVER.md`](./HANDOVER.md).
