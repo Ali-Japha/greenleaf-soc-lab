@@ -22,7 +22,7 @@
 2. **Container Stack Rollback:** Stop current services (`docker-compose down`), pin the previous stable image tag in `docker-compose.yml`, and restart (`docker-compose up -d`).
 3. **Index / Data Recovery:** Restore the latest daily snapshot from `/var/backups/elasticsearch/` using the Elasticsearch `_snapshot` REST API.
 
-## 5. Escalation & On-Call Contacts
-* **SOC Engineering & Detection Lead:** Ali (`ali.soc@greenleaf-internal.local` | GitHub: `@Ali-Japha`)
-* **Infrastructure / Firewall Ops:** NetOps On-Call (`netops-oncall@greenleaf-internal.local` | Slack: `#soc-incident-response`)
+## 5. Escalation & Contacts
+* **Repository Owner & SOC Engineering Lead:** Ali (`https://github.com/Ali-Japha` | GitHub handle: `@Ali-Japha`)
+* **Demo Escalation Path:** Because this is a demo SOC deployment, there is no separate on-call pager or internal mail distribution list—all alert escalations, configuration issues, and playbook questions during the demo go directly to the repository owner (`@Ali-Japha`) via GitHub Issues (`https://github.com/Ali-Japha/greenleaf-soc-lab/issues`).
 * **Escalation SLA:** Acknowledge high-severity alerts within `15 minutes` (MTTD) and execute containment per `/playbooks/` within `60 minutes` (MTTR).
