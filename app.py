@@ -23,10 +23,19 @@ st.divider()
 st.subheader("🚨 Recent SIEM Alerts & Rehearsal Timeline (UTC)")
 alert_data = pd.DataFrame([
     {"Timestamp": "2026-11-15 14:02:11", "Severity": "HIGH", "Rule": "Brute Force Authentication Attempt", "Source IP": "185.220.101.44", "Status": "Contained & Blocked"},
+    {"Timestamp": "2026-11-15 14:02:48", "Severity": "WARN", "Rule": "Telemetry Ingested (12x Event ID 4625)", "Source IP": "185.220.101.44", "Status": "Indexed in Elasticsearch"},
     {"Timestamp": "2026-11-15 14:03:05", "Severity": "INFO", "Rule": "SIEM Alert Triggered (TTD: 54s)", "Source IP": "10.0.2.15", "Status": "Playbook Executed"},
     {"Timestamp": "2026-11-15 14:11:40", "Severity": "RESOLVED", "Rule": "Account Restored with MFA (TTR: 9m 29s)", "Source IP": "10.0.2.15", "Status": "Closed"}
 ])
 st.dataframe(alert_data, use_container_width=True)
+
+# Telemetry & Detection Evidence Viewer (Reads directly from incident_rehearsal_log.md)
+st.subheader("🔍 SIEM Telemetry & Rule Match Evidence")
+with st.expander("View Raw Rehearsal Log & Elasticsearch Hit (Event ID 4625)", expanded=True):
+    with open("incident_rehearsal_log.md") as lf:
+        st.markdown(lf.read())
+
+st.divider()
 
 # Incident Response Playbooks Viewer
 st.subheader("📘 Active Incident Response Playbooks")
